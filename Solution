@@ -1,0 +1,62 @@
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner inp = new Scanner(System.in);
+
+        int quarters = inp.nextInt();
+
+        int machine1times = inp.nextInt();
+        int machine1pay = 35-machine1times;
+
+        int machine2times = inp.nextInt();
+        int machine2pay = 100-machine2times;
+
+        int machine3times = inp.nextInt();
+        int machine3pay = 10-machine3times;
+
+        int playtimes = 0;
+
+        while (true){
+            quarters-= 1;
+            playtimes+=1;
+            machine1pay-=1;
+            if (machine1pay==0){
+                quarters+= 30;
+                machine1pay =35;
+            }
+
+            if (quarters<=0){
+                break;
+            }
+
+            quarters-= 1;
+            playtimes+=1;
+            machine2pay-=1;
+            if (machine2pay==0){
+                quarters+= 60;
+                machine2pay =100;
+            }
+
+            if (quarters<=0){
+                break;
+            }
+            quarters-= 1;
+            playtimes+=1;
+            machine3pay-=1;
+            if (machine3pay==0){
+                quarters+= 9;
+                machine3pay = 10;
+            }
+
+            if (quarters<=0){
+                break;
+            }
+
+        }
+        System.out.println("Martha plays " + playtimes+ " times before going broke.");
+
+    }
+}
